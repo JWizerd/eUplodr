@@ -1,39 +1,43 @@
 'use strict'
 
-/** @type {import('@adonisjs/framework/src/Hash')} */
-const Hash = use('Hash')
+const BaseModel = use('MongooseModel')
 
-/** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Model = use('Model')
+/**
+ * @class User
+ */
+class User extends BaseModel {
+  static boot({ schema }) {
+    // Hooks:
+    this.addHook('preSave', self.hashPassword)
+    // this.addHook('preSave', 'UserHook.method')
+    // Indexes:
+    // this.index({}, {background: true})
+  }
 
-class User extends Model {
-  static boot () {
-    super.boot()
-
-    /**
-     * A hook to hash the user password before saving
-     * it to the database.
-     */
-    this.addHook('beforeSave', async (userInstance) => {
-      if (userInstance.dirty.password) {
-        userInstance.password = await Hash.make(userInstance.password)
-      }
-    })
+  static async hashPassword(userInstance) {
+    if (userInstance.dirty.password) {
+      userInstance.password = await Hash.make(userInstance.password)
+    }
   }
 
   /**
-   * A relationship on tokens is required for auth to
-   * work. Since features like `refreshTokens` or
-   * `rememberToken` will be saved inside the
-   * tokens table.
-   *
-   * @method tokens
-   *
-   * @return {Object}
+   * User's schema
    */
-  tokens () {
-    return this.hasMany('App/Models/Token')
+  static get schema() {
+    return {
+      firstName: String,
+      lastName: String,
+      email: String,
+      password: String,
+      token: String,
+      secret: String,
+      chargeDate: Date,
+      isActve: Boolean,
+      remainingRequests: Number,
+      queueId: String,
+      bucketId: String
+    }
   }
 }
 
-module.exports = User
+module.exports = User.buildModel('User')

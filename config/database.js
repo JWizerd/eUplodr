@@ -8,6 +8,18 @@ const Helpers = use('Helpers')
 
 module.exports = {
   /*
+|--------------------------------------------------------------------------
+| MongoDB
+|--------------------------------------------------------------------------
+|
+| Here we define connection settings for MongoDB database.
+|
+*/
+  mongodb: {
+    connectionString: Env.get('MONGO_CONNECTION_STRING', null),
+  },
+
+  /*
   |--------------------------------------------------------------------------
   | Default Connection
   |--------------------------------------------------------------------------
