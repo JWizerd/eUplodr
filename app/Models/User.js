@@ -25,17 +25,47 @@ class User extends BaseModel {
    */
   static get schema() {
     return {
-      firstName: String,
-      lastName: String,
-      email: String,
-      password: String,
-      token: String,
-      secret: String,
-      chargeDate: Date,
-      isActve: Boolean,
-      remainingRequests: Number,
-      queueId: String,
-      bucketId: String
+      firstName: {
+        type: String,
+        required: true
+      },
+      lastName: {
+        type: String,
+        required: true
+      },
+      email: {
+        type: String,
+        required: true
+      },
+      password: {
+        type: String,
+        required: true
+      },
+      etsyId: {
+        type: Number
+      },
+      token: {
+        type: String
+      },
+      secret: {
+        type: String
+      },
+      chargeDate: {
+        type: Date
+      },
+      isActive: {
+        type: Boolean,
+        required: true
+      },
+      remainingRequests: {
+        type: Number
+      },
+      queueId: {
+        type: String
+      },
+      bucketId: {
+        type: String
+      }
     }
   }
 }

@@ -20,7 +20,13 @@ class Listing extends BaseModel {
     return {
       userId: {
         type: Number,
-        required: true
+        required: true,
+        index: true
+      },
+      listing_id: {
+        type: Number,
+        required: true,
+        index: true
       },
       quantity: {
         type: Number,
@@ -58,7 +64,8 @@ class Listing extends BaseModel {
       },
       state: {
         type: String,
-        enum: ['active', 'draft']
+        enum: ['active', 'draft'],
+        index: true
       },
       processing_min: {
         type: Number
@@ -73,7 +80,8 @@ class Listing extends BaseModel {
         type: Number
       },
       tags: {
-        type: [String]
+        type: [String],
+        index: true
       },
       who_made: {
         type: String,
@@ -85,6 +93,7 @@ class Listing extends BaseModel {
       },
       when_made: {
         type: String,
+        index: true,
         enum: [
           "made_to_order", "2010_2019", "2000_2009",
           "before_2000", "1990s", "1980s", "1970s",
@@ -104,6 +113,7 @@ class Listing extends BaseModel {
       },
       occassion: {
         type: String,
+        index: true,
         enum: [
           "anniversary", "baptism", "bar_or_bat_mitzvah",
           "birthday", "canada_day", "chinese_new_year",
