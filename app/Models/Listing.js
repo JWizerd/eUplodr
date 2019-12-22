@@ -11,7 +11,7 @@ class Listing extends Model {
 
     /** @type {typeof import('./ListingImage')} */
     images() {
-        return this.hasMany('App/Models/ListingFile')
+        return this.hasMany('App/Models/ListingImage')
     }
 
     /** @type {typeof import('./User')} */
