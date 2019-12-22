@@ -53,7 +53,7 @@ class ListingsSchema extends Schema {
       table.integer('processing_max')
       table.integer('taxonomy_id')
       table.text('tags', 'mediumtext')
-      table.string('style').notNullable()
+      table.string('style')
       table.boolean('is_supply').notNullable()
 
       table.enu('state', ['active', 'draft']).notNullable().index()
