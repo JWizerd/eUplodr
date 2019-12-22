@@ -14,10 +14,10 @@
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use('Factory')
 
-Factory.blueprint('App/Models/Listing', async (faker) => {
+/** @type {import('../app/Models/User')} */
+Factory.blueprint('App/Models/User', async (faker) => {
     return {
         id: 1,
-        username: faker.username(),
         email: faker.email(),
         password: await Hash.make(faker.password()),
         first_name: faker.name(),
@@ -33,6 +33,7 @@ Factory.blueprint('App/Models/Listing', async (faker) => {
     }
 })
 
+/** @type {import('../app/Models/Listing')} */
 Factory.blueprint('App/Models/Listing', async (faker) => {
     return {
         user_id: 1,
@@ -64,6 +65,7 @@ Factory.blueprint('App/Models/Listing', async (faker) => {
     }
 })
 
+/** @type {import('../app/Models/ListingImage')} */
 Factory.blueprint('App/Models/ListingImage', async (faker) => {
     return {
         listing_id: 1,
@@ -71,6 +73,7 @@ Factory.blueprint('App/Models/ListingImage', async (faker) => {
     }
 })
 
+/** @type {import('../app/Models/ListingFile')} */
 Factory.blueprint('App/Models/ListingFile', async (faker) => {
     return {
         listing_id: 1,
