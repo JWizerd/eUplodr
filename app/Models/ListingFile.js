@@ -1,40 +1,9 @@
 'use strict'
 
-const BaseModel = use('MongooseModel')
+/** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
+const Model = use('Model')
 
-/**
- * @class ListingFile
- */
-class ListingFile extends BaseModel {
-  static boot({ schema }) {
-    // Hooks:
-    // this.addHook('preSave', () => {})
-    // this.addHook('preSave', 'ListingFileHook.method')
-    // Indexes:
-    // this.index({}, {background: true})
-  }
-  /**
-   * ListingFile's schema
-   */
-  static get schema() {
-    return {
-      listing_id: {
-        type: Number,
-        required: true,
-        index: true
-      },
-      file: {
-        type: String,
-        required: true
-      },
-      rank: {
-        type: Number
-      },
-      name: {
-        type: String
-      }
-    }
-  }
+class ListingFile extends Model {
 }
 
-module.exports = ListingFile.buildModel('ListingFile')
+module.exports = ListingFile

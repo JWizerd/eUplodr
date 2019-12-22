@@ -85,12 +85,10 @@ module.exports = {
   |
   */
   api: {
-    serializer: 'mongoose',
-    scheme: 'api',
+    serializer: 'lucid',
     model: 'App/Models/User',
-    token: 'App/Models/Token',
-    uid: 'email', // The user identifier. Ej: email, username
-    password: '', // Password field if using user-password validation
-    expiry: '30d', // Not yet implemented
-  },
+    scheme: 'api',
+    uid: 'email',
+    password: 'password'
+  }
 }
