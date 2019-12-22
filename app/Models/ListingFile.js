@@ -4,6 +4,10 @@
 const Model = use('Model')
 
 class ListingFile extends Model {
+    /** @type {typeof import('./Listing')} */
+    listing() {
+        return this.belongsTo('App/Models/Listing')
+    }
 }
 
 module.exports = ListingFile

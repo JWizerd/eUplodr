@@ -13,6 +13,11 @@ class Listing extends Model {
     images() {
         return this.hasMany('App/Models/ListingFile')
     }
+
+    /** @type {typeof import('./User')} */
+    user() {
+        return this.belongsTo('App/Models/User')
+    }
 }
 
 module.exports = Listing

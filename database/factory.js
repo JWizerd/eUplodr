@@ -13,6 +13,7 @@
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use('Factory')
+const Hash = use('Hash')
 
 /** @type {import('../app/Models/User')} */
 Factory.blueprint('App/Models/User', async (faker) => {
@@ -24,7 +25,7 @@ Factory.blueprint('App/Models/User', async (faker) => {
         last_name: faker.name(),
         etsy_id: faker.integer(),
         token: faker.string(),
-        secret: faker.secret(),
+        secret: faker.string(),
         charge_date: faker.date({ string: true }),
         is_active: faker.bool(),
         remaining_daily_requests: faker.integer({ min: 0, max: 10000 }),
